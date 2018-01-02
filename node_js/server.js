@@ -41,4 +41,28 @@ app.post('/login',function(req,res){
 
 });//End of /login
 
+
+app.post('/createUser',function(req,res){
+
+    const pseudo = req.body.pseudo
+    const email = req.body.email;
+    const motdepasse = req.body.motdepasse
+
+    MongoClient.connect(urlMongo, function (err, client) {
+    if (err) throw err;
+
+    const db = client.db('shareyoursport');
+    const user = {"pseudo":pseudo,"motdepasse":motdepasse,"email":email};
+
+    db.collection('utilisateurs').insertOne(user,function (findErr, result) {
+    if (findErr) throw findErr;
+  
+    client.close();
+    });
+
+ 
+
+}); 
+
+});//End of /createUser
 app.listen(8080);
