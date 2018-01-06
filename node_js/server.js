@@ -12,8 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/login',function(req,res){
-    console.log('email : '+req.body.email);
-     console.log('mot de passe : '+req.body.motdepasse);
+
     const email = req.body.email;
     const motdepasse = req.body.motdepasse
     const collection_name='utilisateurs';
