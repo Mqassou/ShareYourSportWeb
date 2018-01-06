@@ -1,0 +1,1 @@
+var myAppModule = angular.module('ShareYourSport.ui-map', ['ui.map']);

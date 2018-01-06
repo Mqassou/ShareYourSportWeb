@@ -34,9 +34,20 @@
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+
+<script> 
+    function onGoogleReady() {
+  angular.bootstrap(document.getElementById("map"), ['ShareYourSport.ui-map']);
+ }
+ </script> 
+
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+
+  <!-- script app -->
   <script src="app.js"></script>
+  <script src="map/map.module.js"></script>
+  <script src="map/ui-map.js"></script>
   <script src="login/login.js"></script>
   <script src="home/home.js"></script>
   <script src="service/service.js"></script>
@@ -44,6 +55,14 @@
   <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- angular ui-map-->
+
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-event/dist/event.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-map/src/map.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady"></script>
 
 </body>
 </html>
