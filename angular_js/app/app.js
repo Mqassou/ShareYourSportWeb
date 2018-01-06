@@ -1,14 +1,21 @@
-'use strict';
+	'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
+angular.module('ShareYourSport', [
+  'ngRoute'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/view1'});
+ 
+ $routeProvider.
+        when('/login', {
+          templateUrl: 'login/login.html',
+           controller: 'LoginCtrl'
+        }).
+         when('/home', {
+          templateUrl: 'home/home.html',
+           controller: 'HomeCtrl'
+        }).
+        otherwise('/login');
+ 
 }]);
