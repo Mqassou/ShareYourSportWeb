@@ -1,0 +1,26 @@
+ 
+<div class="mx-auto" style="width: 200px; margin-top:30px;">
+   <form   novalidate >
+      <div class="form-group">
+         <label> Email : <input type="email" class="form-control" ng-model="user.email"/></label> <br/>
+      </div>
+      <div class="form-group">
+         <label> Mot de passe : <input class="form-control" type="password" ng-model="user.motdepasse"/></label>
+      </div>
+      <div class="form-check">
+         <button type="submit" class="btn btn-primary"  ng-click="send()">Send</button>
+      </div>
+   </form>
+</div>
+ 	
+
+<style>
+ 	body {
+  background: url('background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+</style>

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('ShareYourSport')
-  .factory('serviceServer', function ($http, $q) {
+  .factory('serviceData', function ($http, $q) {
     let server='http://localhost:8080/';
      var config = {
                 headers : {
