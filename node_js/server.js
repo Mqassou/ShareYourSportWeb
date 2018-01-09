@@ -11,25 +11,23 @@ const app =express();
 const urlMongo = 'mongodb://localhost:27017';
 
 
- 
-
 app.use(session({
   secret: 'shareyoursport',
   resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
+  saveUninitialized: true
 }))
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-
+ 
 app.post('/login',function(req,res){
 
     const email = req.body.email;
     const motdepasse = req.body.motdepasse
     const collection_name='utilisateurs';
-    let sessionUser=req.session;
+ 
 
     MongoClient.connect(urlMongo, function (err, client) {
     if (err) throw err;
@@ -43,19 +41,22 @@ app.post('/login',function(req,res){
     {
         if(email===result.email && motdepasse===result.motdepasse)
         {
-        res.json({'login':'true'});
         console.log('connected id:' +result._id);
-       sessionUser._id=result._id;
+       req.session.userid=result._id;
+        res.send(req.session.userid);
+       
         }
      }
    else
     {
-            res.json({'login':'false'});
+            res.send('false');
     } 
     client.close();
     });
 
 }); 
+
+ 
 });//End of /login
 
 
@@ -125,8 +126,7 @@ app.post('/createEvent',function(req,res){
 
 app.get('/allEvent',function(req,res){
  
-    const sessionUser =req.session._id;
-    console.log('allEvent requested id:' +sessionUser );
+
     const collection_name='evenements';
 
     MongoClient.connect(urlMongo, function (err, client) {
@@ -320,3 +320,19 @@ app.listen(8080);
 
  
 
+/*
+TEST
+
+app.post('/login',function(req,res){
+req.session.views="truc";
+  res.send('you viewed this page ' + req.session.views + ' times')
+})
+
+app.get('/allEvent', function (req, res) {
+
+  res.send('you viewed this page ' + req.session.views + ' times')
+})
+app.listen(8080);
+
+
+*/

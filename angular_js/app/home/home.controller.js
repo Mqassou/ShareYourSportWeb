@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('ShareYourSport')
-	.controller('HomeCtrl', ['$scope','$location','NgMap','Page','serviceData',function($scope,$location,NgMap,Page,serviceData) {
-  Page.setTitle('Home');
+	.controller('HomeCtrl', ['$scope','$location','$cookies','NgMap','Page','serviceData',function($scope,$location,$cookies,NgMap,Page,serviceData) {
+		// userId : $cookies.get('userId')
+  		Page.setTitle('Home');
  		$scope.events=[{}];
 
           serviceData.allEvent().then(function successCallback(response) {
