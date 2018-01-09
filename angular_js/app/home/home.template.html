@@ -3,10 +3,20 @@
 
 
 
-<ng-map  style="height:550px" center="41,-87" zoom="3"></ng-map>
 
 
+ <ng-map style="height:550px" zoom="13"  center="current-location"
+        on-center-changed="centerCustomMarker()">
+        
+        <custom-marker ng-repeat="event in events" position="{{event.latitude}},{{event.longitude}}" on-click="vm.closeCustomMarker()">
+          <div style="border: solid 4px red;font-size:1em;">
+           {{event.ville}}
+           </div>
+        </custom-marker>
+      </ng-map>
 
+
+ 
 <style>
 
 html
@@ -16,3 +26,4 @@ html
 </style>
  
 
+-->

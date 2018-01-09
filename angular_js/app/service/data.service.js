@@ -10,6 +10,9 @@ angular.module('ShareYourSport')
     return{
         login: function(data){
             return $http.post(server+'login',data,config);
+        },
+        allEvent: function(){
+            return $http.get(server+'allEvent');
         }
     }
   });
