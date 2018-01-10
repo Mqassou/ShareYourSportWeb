@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ShareYourSport')
-	.controller('HomeCtrl', ['$scope','$location','$cookies','NgMap','Page','serviceData',function($scope,$location,$cookies,NgMap,Page,serviceData) {
+	.controller('HomeCtrl', ['$scope','$cookies','NgMap','Page','serviceData',function($scope,$cookies,NgMap,Page,serviceData) {
 		// userId : $cookies.get('userId')
   		Page.setTitle('Accueil');
   		let data={};

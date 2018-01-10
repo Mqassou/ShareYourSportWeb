@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ShareYourSport')
-	.controller('CreateEventCtrl', ['$scope','$location','$cookies','serviceData','Page','NgMap',function($scope,$location,$cookies,serviceData,Page,NgMap) {
+	.controller('CreateEventCtrl', ['$scope','serviceData','Page','NgMap',function($scope,serviceData,Page,NgMap) {
 
  Page.setTitle('Creer evenement');
 

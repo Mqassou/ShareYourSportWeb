@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ShareYourSport')
-	.controller('ParametersCtrl', ['$scope','$location','$cookies','serviceData','Page','NgMap',function($scope,$location,$cookies,serviceData,Page,NgMap) {
+	.controller('ParametersCtrl', ['$scope','$cookies','serviceData','Page','NgMap',function($scope,$cookies,serviceData,Page,NgMap) {
 
 Page.setTitle('Paramètres');
 $scope.user={};

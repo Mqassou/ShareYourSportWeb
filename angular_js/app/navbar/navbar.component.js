@@ -6,6 +6,7 @@ angular.
 
         var self = this;
        self.url={
+        login:'#!/login',
         home:'#!/home',
         createEvent:'#!/creer',
         myEvent:'#!/evenements',
