@@ -17,6 +17,14 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
           templateUrl: 'home/home.template.html',
           controller: 'HomeCtrl'
         }).
+         when('/creer', {
+          templateUrl: 'create.event/create.event.template.html',
+          controller: 'CreateEventCtrl'
+        }).
+         when('/parametres', {
+          templateUrl: 'parameters/parameters.template.html',
+          controller: 'ParametersCtrl'
+        }).
         otherwise('/login');
  
 }]);

@@ -8,8 +8,8 @@ angular.
        self.url={
         home:'#!/home',
         createEvent:'#!/creer',
-         myEvent:'#!/evenements',
-        parameter:'#!/parametres'
+        myEvent:'#!/evenements',
+        parameters:'#!/parametres'
        }
       }
     

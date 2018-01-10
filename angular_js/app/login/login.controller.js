@@ -3,9 +3,9 @@
 angular.module('ShareYourSport')
 	.controller('LoginCtrl', ['$scope','$location','$cookies','serviceData','Page',function($scope,$location,$cookies,serviceData,Page) {
 
- Page.setTitle('Login');
-$scope.user={email:'email@gmail.fr',motdepasse:'passe'};
-$scope.newUser={pseudo:'Sportif',email:'email@gmail.fr',motdepasse:'passe'};
+ Page.setTitle('Connexion');
+$scope.user={email:'',motdepasse:''};
+$scope.newUser={pseudo:'',email:'',motdepasse:''};
  
 $scope.connexion=function()
 	{
@@ -30,7 +30,6 @@ $scope.connexion=function()
 $scope.creerCompte=function()
 	{
 	  serviceData.createUser($scope.newUser).then(function successCallback(response) {
-
 		if(	response.data ==='true')
 		{
 				alert('compte crée');

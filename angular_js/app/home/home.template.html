@@ -7,19 +7,14 @@
 
  <ng-map style="height:550px" zoom="11"  center="Paris"> <!--current-location-->
         
-        
-        <!--<marker  ng-repeat="event in events" position="{{event.latitude}},{{event.longitude}}"
-      icon="img/marker/marker_football.png"  on-click="showCustomMarker()">
-    </marker>-->
-
   <custom-marker id="eventinfo" ng-repeat="event in events" position="{{event.latitude}},{{event.longitude}}"  >
   <img src="img/marker/{{img[event.sport]}}" ng-model="show" ng-click="show = !show"/><br />
           <div  id="eventinfomodal"  ng-show="show" >
-          	<h6>Sport : {{event.sport}}</h6>
+          	<h6>Sport : <span ng-bind="event.sport"></span></h6>
           	<p>    
           		<p>Lieu :  <span ng-bind="event.lieupratique"></span></p>
 		        <p>Adresse : <span ng-bind="event.adresse"></span> à <span ng-bind="event.ville"></span></p>
-		        <p>Date : Le <span ng-bind="event.date"></span>, de  <span ng-bind="event.heuredebut"></span> à <span ng-bind="event.heurefin"></span></p>
+		        <p>Date : Le <span ng-bind="event.date |date :'dd/MM/yyyy'"></span>, de  <span ng-bind="event.heuredebut |date :'HH:mm'"></span> à <span ng-bind="event.heurefin | date :'HH:mm'"></span></p>
 		        <p>Participants : <span ng-bind="event.participants.length"></span> / <span ng-bind="event.nbrpersonne"> max</p>
 
 		   </p>
@@ -29,7 +24,7 @@
            </div>
         </custom-marker>
    
-      </ng-map>
+   </ng-map>
 
 
  
@@ -48,6 +43,7 @@ border-radius:10px ;
 padding:10px;
 color:white;
 z-index:99999999;
+min-width: 250px;
 }
 
 #eventinfomodal   p

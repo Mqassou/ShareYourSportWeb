@@ -64,7 +64,7 @@ app.post('/createUser',function(req,res){
 
     const pseudo = req.body.pseudo
     const email = req.body.email;
-    const motdepasse = req.body.motdepasse
+    const motdepasse = req.body.motdepasse;
     const collection_name='utilisateurs';
     
 
@@ -72,7 +72,19 @@ app.post('/createUser',function(req,res){
     if (err) throw err;
 
     const db = client.db('shareyoursport');
-    const query = {'pseudo':pseudo,'motdepasse':motdepasse,'email':email};
+    const query = {
+      'pseudo':pseudo,
+      'motdepasse':motdepasse,
+      'email':email,
+      'tel':'',
+      'nom':'',
+      'prenom':'',
+      'adresse':'',
+      'ville':'',
+      'date_de_naissance':'',
+      'sexe':''
+    };
+ 
 
     db.collection(collection_name).insertOne(query,function (findErr, result) {
     if (findErr) throw findErr;
@@ -176,7 +188,7 @@ app.get('/allField',function(req,res){
     const db = client.db('shareyoursport');
      
 
-    db.collection(collection_name).find({}).toArray(function (findErr, result) {
+    db.collection(collection_name).find().limit(50).toArray(function (findErr, result) {
     if (findErr) throw findErr;
     res.json(result);
     });
@@ -218,7 +230,7 @@ app.post('/dataUser',function(req,res){
 
 app.post('/updateDataUser',function(req,res){
 
-    const userId = req.body.userId
+    const userId = req.body.userId;
     const nom = req.body.nom;
     const prenom = req.body.prenom;
     const pseudo = req.body.pseudo;
@@ -228,8 +240,8 @@ app.post('/updateDataUser',function(req,res){
     const email = req.body.email;
     const tel = req.body.tel;
     const sexe = req.body.sexe;
-    const password = req.body.password;
-    const mdp_modifie = req.body.mdp_modifie;
+    const motdepasse = req.body.motdepasse;
+
 
  
      const collection_name='utilisateurs';
@@ -241,7 +253,7 @@ app.post('/updateDataUser',function(req,res){
     const query = {'_id':new ObjectID(userId)};
   
     let newValue="";
-    if(mdp_modifie==='true')
+    if(motdepasse!='')
     {
         newValue = {
                          '$set':{
@@ -254,7 +266,7 @@ app.post('/updateDataUser',function(req,res){
                                  'email':email,
                                  'tel':tel,
                                  'sexe':sexe,
-                                 'password':password
+                                 'motdepasse':motdepasse
                                  }
                         
                     };
@@ -276,7 +288,6 @@ app.post('/updateDataUser',function(req,res){
                         
                     };
     }
-    
 
     db.collection(collection_name).updateOne(query,newValue,function (findErr, result) {
     if (findErr) throw findErr;
