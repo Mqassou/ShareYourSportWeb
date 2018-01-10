@@ -11,8 +11,14 @@ angular.module('ShareYourSport')
         login: function(data){
             return $http.post(server+'login',data,config);
         },
+         createUser: function(data){
+            return $http.post(server+'createUser',data,config);
+        },
         allEvent: function(){
             return $http.get(server+'allEvent');
+        },
+        joinEvent: function(data){
+            return $http.post(server+'joinEvent',data,config);
         }
     }
   });

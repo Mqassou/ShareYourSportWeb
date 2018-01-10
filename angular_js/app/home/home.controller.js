@@ -4,16 +4,37 @@ angular.module('ShareYourSport')
 	.controller('HomeCtrl', ['$scope','$location','$cookies','NgMap','Page','serviceData',function($scope,$location,$cookies,NgMap,Page,serviceData) {
 		// userId : $cookies.get('userId')
   		Page.setTitle('Home');
+  		let data={};
  		$scope.events=[{}];
+ 		$scope.show=false;
 
-          serviceData.allEvent().then(function successCallback(response) {
-			$scope.events=response.data;
- 
+ 		$scope.img={
+ 			'Badminton':'marker_badminton.png',
+ 			'Football':'marker_football.png',
+ 			'Rugby':'marker_rugby.png',
+ 			'Course à pieds':'marker_run.png',
+ 			'Tennis':'marker_tennis.png',
+ 			'Volley-ball':'marker_volleyball.png',
+ 			'Basketball':'marker_basketball.png',
+ 			'Cyclisme':'marker_cycle.png'
+ 		}
 
-	  }, function errorCallback(response) {
-	  // erreur
-	  });
-       
+        serviceData.allEvent().then(function successCallback(response) {
+		$scope.events=response.data;
+		}, function errorCallback(response) {
+		// erreur
+		});
+
+ 		$scope.rejoindre=function(eventId)
+ 		{
+ 			data.userId=$cookies.get('userId');
+ 			data.eventId=eventId;
+	 		serviceData.joinEvent(data).then(function successCallback(response) {
+			response.data==='true'?alert('Evenement rejoint '):alert('erreur');
+			}, function errorCallback(response) {
+			// erreur
+			});
+ 		}
 
 }]);
 

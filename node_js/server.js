@@ -76,7 +76,8 @@ app.post('/createUser',function(req,res){
 
     db.collection(collection_name).insertOne(query,function (findErr, result) {
     if (findErr) throw findErr;
-  
+    console.log("created user");
+    res.send('true');
     client.close();
     });
 }); 
@@ -116,7 +117,8 @@ app.post('/createEvent',function(req,res){
 
     db.collection(collection_name).insertOne(query,function (findErr, result) {
     if (findErr) throw findErr;
-  console.log("created event");
+    console.log("created event");
+    res.send('true');
     client.close();
     });
 
@@ -279,6 +281,7 @@ app.post('/updateDataUser',function(req,res){
     db.collection(collection_name).updateOne(query,newValue,function (findErr, result) {
     if (findErr) throw findErr;
     console.log("updated");
+    res.send('true');
     client.close();
     });
 
@@ -310,6 +313,7 @@ app.post('/joinEvent',function(req,res){
     db.collection(collection_name).updateOne(query,newValue,function (findErr, result) {
     if (findErr) throw findErr;
     console.log("joined event");
+    res.send('true');
     client.close();
     });
 
