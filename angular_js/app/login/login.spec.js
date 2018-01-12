@@ -91,7 +91,6 @@ describe('login controller', function(){
 			$scope.connexion();
 			$scope.$apply();
 
-			console.log($cookies.get('userId'));
 
 		   expect($cookies.put).toHaveBeenCalledWith('userId','451235451');
 
