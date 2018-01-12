@@ -30,7 +30,7 @@ angular.module('ShareYourSport')
  			data.userId=$cookies.get('userId');
  			data.eventId=eventId;
 	 		serviceData.joinEvent(data).then(function successCallback(response) {
-			response.data==='true'?alert('Evenement rejoint '):alert('erreur');
+			response.data==='true'?alert('Evenement rejoint'):alert('erreur');
 			}, function errorCallback(response) {
 			alert(response);
 			});
