@@ -10,10 +10,11 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/ngmap/build/scripts/ng-map.min.js',
       'bower_components/angular-cookies/angular-cookies.js',
-       'app.js',
-       'app.controller.js',
-	   '**/*.spec.js',
-	   '!(bower_components|vendor)/**/*.js'
+      'app.js',
+      'app.controller.js',
+	    '**/*.spec.js',
+	    '!(bower_components|vendor)/**/*.js',
+       '**/*.template.html'
     
     ],
 
@@ -21,13 +22,17 @@ module.exports = function(config) {
 
     frameworks: ['jasmine'],
 
+    preprocessors: {
+        '**/*.html':['ng-html2js']
+            },
     browsers: ['Chrome'],
 
     plugins: [
       'karma-chrome-launcher',
       'karma-firefox-launcher',
       'karma-jasmine',
-      'karma-junit-reporter'
+      'karma-junit-reporter',
+      'karma-ng-html2js-preprocessor'
     ],
 
     junitReporter: {
