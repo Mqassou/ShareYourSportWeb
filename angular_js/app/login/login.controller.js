@@ -32,7 +32,7 @@ $scope.creerCompte=function()
 	  serviceData.createUser($scope.newUser).then(function successCallback(response) {
 		if(	response.data ==='true')
 		{
-				alert('compte crée');
+				alert('Compte crée');
 		}
 		else
 		{

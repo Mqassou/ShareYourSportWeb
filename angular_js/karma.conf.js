@@ -25,7 +25,7 @@ module.exports = function(config) {
     preprocessors: {
         '**/*.html':['ng-html2js']
             },
-    browsers: ['Chrome'],
+    browsers: ['Chrome','Firefox'],
 
     plugins: [
       'karma-chrome-launcher',
