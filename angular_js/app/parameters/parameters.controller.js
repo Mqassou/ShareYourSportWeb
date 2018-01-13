@@ -28,7 +28,7 @@ $scope.user={};
 		{
 
 			serviceData.updateDataUser($scope.user).then(function successCallback(response) {
-				response.data==='true'?alert('Paramètres mis à jour '):alert('erreur');
+				response.data==='true'?alert('Paramètres mis à jour'):alert('erreur');
 				}, function errorCallback(response) {
 				alert(response);
 				});
