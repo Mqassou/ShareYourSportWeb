@@ -1,6 +1,5 @@
 'use strict';
 
-/* https://github.com/angular/protractor/blob/master/docs/toc.md */
 
 describe('ShareYourSport - E2E ', function() {
 
@@ -16,6 +15,16 @@ describe('ShareYourSport - E2E ', function() {
     
 
             beforeEach(function() {
+                browser.get('');
+
+                var connexion = element(by.buttonText('Connexion'));
+                var userEmail = element(by.model('user.email'));
+                var userMotdepasse = element(by.model('user.motdepasse'));
+
+                userEmail.sendKeys('mohamed@gmail.com');
+                userMotdepasse.sendKeys('mohamed95');
+                connexion.click();
+
                 browser.get('#!/home');
             });
 

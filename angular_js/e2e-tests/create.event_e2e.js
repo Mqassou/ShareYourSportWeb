@@ -1,6 +1,5 @@
 'use strict';
 
-/* https://github.com/angular/protractor/blob/master/docs/toc.md */
 
 describe('ShareYourSport - E2E ', function() {
 
@@ -19,7 +18,7 @@ describe('ShareYourSport - E2E ', function() {
         var buttonChoose=firstCustomMarker.element(by.buttonText('Choisir ce lieu'));
 
         //////////////////////////////////////////
-        var inputSport=element(by.model('event.sport'));//element(by.model('orderProp')).$('[value="age"]').click();
+        var inputSport=element(by.model('event.sport'));
         var inputDate=element(by.model('event.date'));
         var inputHdebut=element(by.model('event.heuredebut'));
         var inputHfin=element(by.model('event.heurefin'));
@@ -27,11 +26,17 @@ describe('ShareYourSport - E2E ', function() {
         var buttonCreate=element(by.buttonText('Créer l\'événement'));
 
 
-        var EC = protractor.ExpectedConditions;
-
-    
-
             beforeEach(function() {
+                browser.get('');
+
+                var connexion = element(by.buttonText('Connexion'));
+                var userEmail = element(by.model('user.email'));
+                var userMotdepasse = element(by.model('user.motdepasse'));
+
+                userEmail.sendKeys('mohamed@gmail.com');
+                userMotdepasse.sendKeys('mohamed95');
+                connexion.click();
+
                 browser.get('#!/creer');
             });
 
@@ -144,7 +149,7 @@ describe('ShareYourSport - E2E ', function() {
                  
 
             
-            });//fin Pagecreate event
+            });//fin Page parametres
  
 
       
