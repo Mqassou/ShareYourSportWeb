@@ -4,7 +4,7 @@ angular.module('ShareYourSport')
 	.controller('LoginCtrl', ['$scope','$location','$cookies','serviceData','Page',function($scope,$location,$cookies,serviceData,Page) {
 
  Page.setTitle('Connexion');
-$scope.user={email:'mohamed@gmail.com',motdepasse:'mohamed95'};
+$scope.user={email:'',motdepasse:''};
 $scope.newUser={pseudo:'',email:'',motdepasse:''};
  
 $scope.connexion=function()

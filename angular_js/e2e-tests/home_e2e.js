@@ -6,11 +6,11 @@ describe('ShareYourSport - E2E ', function() {
 
     describe('- Page home ', function() {
         var eventList = element.all(by.css('.custom-marker'))
-        var firstCustomMarker=eventList.last();// last car celui-ci est visible sur la fenêtre
-        var img=firstCustomMarker.element( by.tagName('img'));
-        var modal=firstCustomMarker.element( by.css('.eventinfomodal'));
-        var buttonClose=firstCustomMarker.element(by.buttonText('Fermer'));
-        var buttonJoin=firstCustomMarker.element(by.buttonText('Rejoindre'));
+        var lastCustomMarker=eventList.last();// last car celui-ci est visible sur la fenêtre
+        var img=lastCustomMarker.element( by.tagName('img'));
+        var modal=lastCustomMarker.element( by.css('.eventinfomodal'));
+        var buttonClose=lastCustomMarker.element(by.buttonText('Fermer'));
+        var buttonJoin=lastCustomMarker.element(by.buttonText('Rejoindre'));
         var EC = protractor.ExpectedConditions;
 
     
@@ -19,7 +19,7 @@ describe('ShareYourSport - E2E ', function() {
                 browser.get('#!/home');
             });
 
-            xit('should render home when user navigates to #!/home', function() {
+            it('should render home when user navigates to #!/home', function() {
                 expect(browser.getCurrentUrl()).toBe('http://localhost:8000/#!/home');
             });
 

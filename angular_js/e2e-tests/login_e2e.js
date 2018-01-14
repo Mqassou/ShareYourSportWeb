@@ -25,11 +25,11 @@ describe('ShareYourSport - E2E ', function() {
                 browser.get('');
             });
 
-            xit('should render login when user navigates to /login', function() {
+            it('should render login when user navigates to /login', function() {
                 expect(browser.getCurrentUrl()).toBe('http://localhost:8000/#!/login');
             });
 
-            xit('should render home when user enter the correct email and password', function() {
+            it('should render home when user enter the correct email and password', function() {
                 userEmail.sendKeys('mohamed@gmail.com');
                 userMotdepasse.sendKeys('mohamed95');
 
@@ -37,7 +37,7 @@ describe('ShareYourSport - E2E ', function() {
                 expect(browser.getCurrentUrl()).toBe('http://localhost:8000/#!/home');
             });
 
-            xit('should stay on the  login  page when user enter the wrong password', function() {
+            it('should stay on the  login  page when user enter the wrong password', function() {
 
                 userEmail.sendKeys('mohamed@gmail.com');
                 userMotdepasse.sendKeys('');
@@ -61,7 +61,7 @@ describe('ShareYourSport - E2E ', function() {
                 browser.get('');
             });
 
-            xit('should render alert when user create an account', function() {
+            it('should render alert when user create an account', function() {
                 var EC = protractor.ExpectedConditions;
                 creercompte.click();
 

@@ -43,7 +43,7 @@ $scope.creer=function()
  		{
 
  		serviceData.createEvent($scope.event).then(function successCallback(response) {
-			response.data==='true'?alert('Evenement cree'):alert('erreur');
+			response.data==='true'?alert('Evenement crée'):alert('erreur');
 			}, function errorCallback(response) {
 			console.log(response);
 			});

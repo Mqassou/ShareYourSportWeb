@@ -28,21 +28,21 @@
             <ng-map style="height:400px" zoom="11"  center="Paris"> <!--current-location-->
             <custom-marker id="eventinfo" ng-repeat="field in fields" position="{{field.latitude}},{{field.longitude}}"  >
                <img src="img/marker/marker.png" ng-model="show" ng-click="show = !show"/><br />
-               <div  id="fieldinfomodal"  ng-show="show" >
+               <div  class="fieldinfomodal"  ng-show="show" >
                   <h6>Lieu : <span ng-bind="field.nom"></span></h6>
                   <p>    
                   <p>Adresse : <span ng-bind="field.adresse"></span> à <span ng-bind="field.ville"></span> <span ng-bind="field.codePostal"></span></p>
 
                  </p>
                   <button type="button" class="btn btn-dark" ng-click="choisir(field)">Choisir ce lieu</button>	 
-                  <button id="closeModal" type="button" ng-click="show = !show" class="btn btn-dark">Fermer</button>	
+                  <button type="button" ng-click="show = !show" class="btn btn-dark closeModal">Fermer</button>	
                </div>
             </custom-marker>
             </ng-map>
 		<div class="alert alert-success" role="alert">
-		{{'Lieu : ' + event.lieupratique}} <br/>
-		{{'Adresse : ' + event.adresse}} <br/>
-		{{'Ville : ' + event.ville}}
+		Lieu : <span ng-bind="event.lieupratique"></span> <br/>
+		Adresse : <span ng-bind="event.adresse"></span> <br/>
+		Ville : <span ng-bind="event.ville"></span>
 		</div>
             
          </div>
@@ -74,7 +74,7 @@
    </form>
 </div>
 <style>
-#fieldinfomodal
+.fieldinfomodal
 {
 background-color: rgba(0, 0, 0, 0.9);
  
@@ -86,12 +86,12 @@ z-index:99999999;
 min-width: 250px;
 }
 
-#fieldinfomodal   p
+.fieldinfomodal   p
 {
  font-size:1.4em;
 }
 
-#closeModal
+.closeModal
 {
 position:absolute;
 right:10px;
