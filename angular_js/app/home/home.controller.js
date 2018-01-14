@@ -22,7 +22,7 @@ angular.module('ShareYourSport')
         serviceData.allEvent().then(function successCallback(response) {
 		$scope.events=response.data;
 		}, function errorCallback(response) {
-		alert(response);
+		console.log(response);
 		});
 
  		$scope.rejoindre=function(eventId)
@@ -32,7 +32,7 @@ angular.module('ShareYourSport')
 	 		serviceData.joinEvent(data).then(function successCallback(response) {
 			response.data==='true'?alert('Evenement rejoint'):alert('erreur');
 			}, function errorCallback(response) {
-			alert(response);
+			console.log(response);
 			});
  		}
 

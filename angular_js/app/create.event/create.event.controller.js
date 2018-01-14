@@ -23,7 +23,7 @@ angular.module('ShareYourSport')
  	  serviceData.allField().then(function successCallback(response) {
 		$scope.fields=response.data;
 		}, function errorCallback(response) {
-		alert(response);
+		console.log(response);
 		});
 
 
@@ -45,7 +45,7 @@ $scope.creer=function()
  		serviceData.createEvent($scope.event).then(function successCallback(response) {
 			response.data==='true'?alert('Evenement cree'):alert('erreur');
 			}, function errorCallback(response) {
-			alert(response);
+			console.log(response);
 			});
  }
 
