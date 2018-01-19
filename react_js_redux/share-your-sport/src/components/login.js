@@ -16,7 +16,7 @@ handleChange(e)
   render() {
     return (
     	<div className="container">
-		 <Form >
+		 <Form>
 			 <h1>ShareYourSport  </h1>
 		        <FormGroup>
 		          <Label for="exampleEmail">Email</Label>

@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {HomeContainer} from './homeContainer';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {Login} from '../components/login'
+import axios from 'axios';
+
 
 export class LoginContainer extends React.Component {
  constructor(props) {
@@ -16,6 +20,7 @@ export class LoginContainer extends React.Component {
     				 email:'', 
     				 motdepasse:''
     				},
+    				loggedIn:false
     		};
 
 
@@ -35,7 +40,23 @@ export class LoginContainer extends React.Component {
 
   connexion()
   {
- 
+  	const self=this;
+
+	 axios.post('http://localhost:8080/login', {
+	    email: this.state.connexion.email,
+	    motdepasse: this.state.connexion.motdepasse
+	  })
+	  .then(function (response) {
+	    console.log(response);
+	    if( response.data !=false)
+	    {
+	    	self.setState({loggedIn:true})
+	    }
+	  
+	  })
+	  .catch(function (error) {
+	    console.log(error);
+	  });
   }
    creerCompte()
   {
@@ -43,7 +64,16 @@ export class LoginContainer extends React.Component {
   }
 
   render() {
-    return <Login onChangeConnexion={this.handleChangeConnexion} onConnexion={this.connexion}  onCreerCompte={this.creerCompte}/>
+  	if(this.state.loggedIn)
+  	{
+  		
+  		return <HomeContainer/>
+  	}
+  	else
+  	{
+  		 return <Login onChangeConnexion={this.handleChangeConnexion} onConnexion={this.connexion}  onCreerCompte={this.creerCompte}/>
+  	}
+   
   }
 }
-
+ 
