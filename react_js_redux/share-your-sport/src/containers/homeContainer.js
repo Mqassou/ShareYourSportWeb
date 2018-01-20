@@ -20,18 +20,7 @@ export class HomeContainer extends React.Component {
 
   render() {
     return (
-			<Router>
-				
-
-	  			 <div>
-	  			 <Home/>
-		  			  <li><Link to="/home">Home</Link></li>
-		  			 
-					  <Route path='/home' component={HomeContainer}/>
-				 </div>
-			</Router>
-    	
-
+			<Home/>
     	)
   }
 }

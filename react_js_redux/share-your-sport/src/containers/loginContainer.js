@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {HomeContainer} from './homeContainer';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import {Login} from '../components/login'
 import axios from 'axios';
 
@@ -67,7 +67,7 @@ export class LoginContainer extends React.Component {
   	if(this.state.loggedIn)
   	{
   		
-  		return <HomeContainer/>
+  		return <Redirect to="/home"/>
   	}
   	else
   	{
