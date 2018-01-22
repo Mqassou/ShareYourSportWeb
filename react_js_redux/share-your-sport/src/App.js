@@ -25,7 +25,9 @@ export class App extends React.Component {
       <Router>
            <div>
              <Route exact path='/' component={LoginContainer}/>
-            <Route path='/home' component={HomeContainer}/>
+             <Route path='/home' component={HomeContainer}/>
+             <Route path='/creer' component={HomeContainer}/>
+               <Route path='/parametres' component={HomeContainer}/>
          </div>
       </Router>
       

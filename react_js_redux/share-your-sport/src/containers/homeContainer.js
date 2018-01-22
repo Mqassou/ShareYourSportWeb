@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Home} from '../components/home'
-import {LoginContainer} from './loginContainer';
+import {NavBarContainer} from './navBarContainer';
 import {
   BrowserRouter as Router,
   Route,
@@ -20,7 +20,10 @@ export class HomeContainer extends React.Component {
 
   render() {
     return (
+      <div>
+      <NavBarContainer/>
 			<Home/>
+      </div>
     	)
   }
 }

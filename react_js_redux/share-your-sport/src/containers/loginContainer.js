@@ -20,7 +20,8 @@ export class LoginContainer extends React.Component {
     				 email:'', 
     				 motdepasse:''
     				},
-    				loggedIn:false
+    				loggedIn:false,
+    				modal:false
     		};
 
 
@@ -28,8 +29,31 @@ export class LoginContainer extends React.Component {
     this.handleChangeConnexion = this.handleChangeConnexion.bind(this);
 
     this.creerCompte = this.creerCompte.bind(this);
+    this.handleChangeCreerCompte = this.handleChangeCreerCompte.bind(this);
+
+    this.toggle = this.toggle.bind(this);
   }
 
+connexion()
+  {
+    const self=this;
+
+   axios.post('http://localhost:8080/login', {
+      email: this.state.connexion.email,
+      motdepasse: this.state.connexion.motdepasse
+    })
+    .then(function (response) {
+      console.log(response);
+      if( response.data !=false)
+      {
+        self.setState({loggedIn:true})
+      }
+    
+    })
+    .catch(function (error) {
+      console.log(error);
+    }); 
+  }
 
  handleChangeConnexion(newValue)
  {
@@ -38,29 +62,41 @@ export class LoginContainer extends React.Component {
     });
  }
 
-  connexion()
-  {
-  	const self=this;
-
-	 axios.post('http://localhost:8080/login', {
-	    email: this.state.connexion.email,
-	    motdepasse: this.state.connexion.motdepasse
-	  })
-	  .then(function (response) {
-	    console.log(response);
-	    if( response.data !=false)
-	    {
-	    	self.setState({loggedIn:true})
-	    }
-	  
-	  })
-	  .catch(function (error) {
-	    console.log(error);
-	  });
-  }
+  
    creerCompte()
   {
-  	
+  const self=this;
+
+   axios.post('http://localhost:8080/createUser', {
+      pseudo:this.state.creerCompte.pseudo,
+      email: this.state.creerCompte.email,
+      motdepasse: this.state.creerCompte.motdepasse
+    })
+    .then(function (response) {
+      console.log(response);
+      if( response.data !=false)
+      {
+        console.log('compte crée');
+         self.setState({modal:false})
+      }
+    
+    })
+    .catch(function (error) {
+      console.log(error);
+    }); 
+  }
+
+ handleChangeCreerCompte(newValue)
+ {
+  this.setState({
+      creerCompte: Object.assign({},this.state.creerCompte,newValue.creerCompte)
+    });
+ }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
   }
 
   render() {
@@ -71,7 +107,7 @@ export class LoginContainer extends React.Component {
   	}
   	else
   	{
-  		 return <Login onChangeConnexion={this.handleChangeConnexion} onConnexion={this.connexion}  onCreerCompte={this.creerCompte}/>
+  		 return <Login modal={this.state.modal} onToggle={this.toggle} onChangeCreerCompte={this.handleChangeCreerCompte} onChangeConnexion={this.handleChangeConnexion} onConnexion={this.connexion}  onCreerCompte={this.creerCompte}/>
   	}
    
   }

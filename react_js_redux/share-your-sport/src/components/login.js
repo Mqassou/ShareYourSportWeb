@@ -1,16 +1,33 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import PropTypes from 'prop-types';
+import { 
+	Button, 
+	Form, 
+	FormGroup, 
+	Label, 
+	Input, 
+	FormText,
+	Modal,
+	ModalHeader,
+	ModalBody,
+	ModalFooter } from 'reactstrap';
 import '../styles/login.css';
 export class Login extends React.Component {
 
  constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeConnexion = this.handleChangeConnexion.bind(this);
+    this.handleChangeCreeCompte = this.handleChangeCreeCompte.bind(this);
   }
-handleChange(e)
+
+handleChangeConnexion(e)
 {
-	e.target.name==='email'?this.props.onChangeConnexion({connexion:{email:e.target.value}}):this.props.onChangeConnexion({connexion:{motdepasse:e.target.value}});
+this.props.onChangeConnexion({connexion:{[e.target.name]:e.target.value}});
+}
+
+handleChangeCreeCompte(e)
+{
+this.props.onChangeCreerCompte({creerCompte:{[e.target.name]:e.target.value}});
 }
 
   render() {
@@ -19,16 +36,45 @@ handleChange(e)
 		 <Form>
 			 <h1>ShareYourSport  </h1>
 		        <FormGroup>
-		          <Label for="exampleEmail">Email</Label>
-		          <Input type="email" onChange={this.handleChange}  name="email" placeholder="with a placeholder" />
+		          <Label for="email">Email</Label>
+		          <Input type="email" onChange={this.handleChangeConnexion}  name="email" placeholder="Email"  />
 		        </FormGroup>
 		        <FormGroup>
-		          <Label for="examplePassword">Password</Label>
-		          <Input type="password" onChange={this.handleChange} name="password"  placeholder="password placeholder" />
+		          <Label for="password">Password</Label>
+		          <Input type="password" onChange={this.handleChangeConnexion} name="motdepasse"  placeholder="Mot de passe" />
 		        </FormGroup>
 
-		         <Button onClick={this.props.onConnexion} color="primary">Connexion </Button>  <Button color="primary">Créer un compte</Button>
+		         <Button onClick={this.props.onConnexion} color="primary">Connexion </Button>  <Button  onClick={this.props.onToggle} color="primary">Créer un compte</Button>
 		 </Form>
+
+
+
+        
+        <Modal isOpen={this.props.modal}  >
+          <ModalHeader>Créer un compte</ModalHeader>
+          <ModalBody>
+
+        		  <FormGroup>
+		          <Label for="pseudo">Pseudo</Label>
+		          <Input type="text" onChange={this.handleChangeCreeCompte} name="pseudo"  placeholder="Pseudo" />
+		        </FormGroup>
+
+         		 <FormGroup>
+		          <Label for="email">Email</Label>
+		          <Input type="email" onChange={this.handleChangeCreeCompte}  name="email" placeholder="Email" />
+		        </FormGroup>
+
+		        <FormGroup>
+		          <Label for="password">Password</Label>
+		          <Input type="password" onChange={this.handleChangeCreeCompte} name="motdepasse"  placeholder="Mot de passe" />
+		        </FormGroup>
+
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.props.onCreerCompte}>Valider</Button>{' '}
+            <Button color="secondary" onClick={this.props.onToggle}>Annuler</Button>
+          </ModalFooter>
+        </Modal>
 	    </div>
 
 
@@ -36,3 +82,13 @@ handleChange(e)
   }
 }
 
+Login.propTypes={
+modal:PropTypes.bool.isRequired,
+onToggle:PropTypes.func.isRequired,
+onChangeCreerCompte:PropTypes.func.isRequired,
+onChangeConnexion:PropTypes.func.isRequired,
+onConnexion:PropTypes.func.isRequired,
+onCreerCompte:PropTypes.func.isRequired,
+
+}
+ 
