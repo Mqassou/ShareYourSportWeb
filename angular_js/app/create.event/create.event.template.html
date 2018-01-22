@@ -30,10 +30,10 @@
                <img src="img/marker/marker.png" ng-model="show" ng-click="show = !show"/><br />
                <div  class="fieldinfomodal"  ng-show="show" >
                   <h6>Lieu : <span ng-bind="field.nom"></span></h6>
-                  <p>    
+             
                   <p>Adresse : <span ng-bind="field.adresse"></span> à <span ng-bind="field.ville"></span> <span ng-bind="field.codePostal"></span></p>
 
-                 </p>
+                
                   <button type="button" class="btn btn-dark" ng-click="choisir(field)">Choisir ce lieu</button>	 
                   <button type="button" ng-click="show = !show" class="btn btn-dark closeModal">Fermer</button>	
                </div>
@@ -93,8 +93,7 @@ min-width: 250px;
 
 .closeModal
 {
-position:absolute;
-right:10px;
+float:right;
  
 }
 

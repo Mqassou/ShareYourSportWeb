@@ -1,9 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import {HomeContainer} from './homeContainer';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import {Login} from '../components/login'
+import '../styles/login.css';
+
+//external ressources
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import axios from 'axios';
+
 
 
 export class LoginContainer extends React.Component {
@@ -26,10 +31,10 @@ export class LoginContainer extends React.Component {
 
 
     this.connexion = this.connexion.bind(this);
-    this.handleChangeConnexion = this.handleChangeConnexion.bind(this);
+    this.onChangeConnexion = this.onChangeConnexion.bind(this);
 
     this.creerCompte = this.creerCompte.bind(this);
-    this.handleChangeCreerCompte = this.handleChangeCreerCompte.bind(this);
+    this.onChangeCreerCompte = this.onChangeCreerCompte.bind(this);
 
     this.toggle = this.toggle.bind(this);
   }
@@ -37,7 +42,6 @@ export class LoginContainer extends React.Component {
 connexion()
   {
     const self=this;
-
    axios.post('http://localhost:8080/login', {
       email: this.state.connexion.email,
       motdepasse: this.state.connexion.motdepasse
@@ -55,7 +59,7 @@ connexion()
     }); 
   }
 
- handleChangeConnexion(newValue)
+ onChangeConnexion(newValue)
  {
 	this.setState({
       connexion: Object.assign({},this.state.connexion,newValue.connexion)
@@ -86,7 +90,7 @@ connexion()
     }); 
   }
 
- handleChangeCreerCompte(newValue)
+ onChangeCreerCompte(newValue)
  {
   this.setState({
       creerCompte: Object.assign({},this.state.creerCompte,newValue.creerCompte)
@@ -107,7 +111,7 @@ connexion()
   	}
   	else
   	{
-  		 return <Login modal={this.state.modal} onToggle={this.toggle} onChangeCreerCompte={this.handleChangeCreerCompte} onChangeConnexion={this.handleChangeConnexion} onConnexion={this.connexion}  onCreerCompte={this.creerCompte}/>
+  		 return <Login modal={this.state.modal} onToggle={this.toggle} onChangeCreerCompte={this.onChangeCreerCompte} onChangeConnexion={this.onChangeConnexion} onConnexion={this.connexion}  onCreerCompte={this.creerCompte}/>
   	}
    
   }

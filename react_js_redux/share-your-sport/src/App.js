@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {LoginContainer} from './containers/loginContainer';
 import {HomeContainer} from './containers/homeContainer';
+import {CreateEventContainer} from './containers/createEventContainer';
+import {ParametersContainer} from './containers/parametersContainer';
 import {
   BrowserRouter as Router,
   Route,
@@ -26,8 +28,8 @@ export class App extends React.Component {
            <div>
              <Route exact path='/' component={LoginContainer}/>
              <Route path='/home' component={HomeContainer}/>
-             <Route path='/creer' component={HomeContainer}/>
-               <Route path='/parametres' component={HomeContainer}/>
+             <Route path='/creer' component={CreateEventContainer}/>
+             <Route path='/parametres' component={ParametersContainer}/>
          </div>
       </Router>
       

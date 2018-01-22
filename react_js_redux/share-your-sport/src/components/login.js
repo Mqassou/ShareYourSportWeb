@@ -11,7 +11,7 @@ import {
 	ModalHeader,
 	ModalBody,
 	ModalFooter } from 'reactstrap';
-import '../styles/login.css';
+
 export class Login extends React.Component {
 
  constructor(props) {
