@@ -97,6 +97,7 @@ app.post('/createUser',function(req,res){
 
 app.post('/createEvent',function(req,res){
 
+
     const sport = req.body.sport
     const lieupratique = req.body.lieupratique;
     const ville = req.body.ville;
@@ -178,8 +179,6 @@ app.get('/totalEvent',function(req,res){
 
 app.get('/allField',function(req,res){
 
-    const email = req.body.email;
-    const motdepasse = req.body.motdepasse
     const collection_name='terrains';
 
     MongoClient.connect(urlMongo, function (err, client) {
@@ -188,7 +187,7 @@ app.get('/allField',function(req,res){
     const db = client.db('shareyoursport');
      
 
-    db.collection(collection_name).find().limit(50).toArray(function (findErr, result) {
+    db.collection(collection_name).find().limit(100).toArray(function (findErr, result) {
     if (findErr) throw findErr;
     res.json(result);
     });

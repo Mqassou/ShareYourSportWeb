@@ -7,11 +7,22 @@ export class Modal extends React.Component {
 
  constructor(props) {
     super(props);
-
+	this.handleClickJoin=this.handleClickJoin.bind(this);
+  this.handleClickChoisir=this.handleClickChoisir.bind(this);
   }
 
 
+handleClickJoin()
+{
+this.props.onJoinEvent(this.props.event._id);
 
+}
+
+handleClickChoisir()
+{
+this.props.onChoisir(this.props.field.nom,this.props.field.adresse,this.props.field.ville,this.props.field.latitude,this.props.field.longitude);
+
+}
   render() {
   	if(this.props.page==='home')
   	{
@@ -28,7 +39,7 @@ export class Modal extends React.Component {
 
               		 
               		   
-                 		<button type="button" className="btn btn-dark">Rejoindre</button>	 
+                 		<button type="button"  onClick={this.handleClickJoin} className="btn btn-dark">Rejoindre</button>	 
                  		<button type="button" onClick={this.props.onToggle}  className="btn btn-dark closeModal">Fermer</button>	
                  	 
                 </div>
@@ -37,7 +48,22 @@ export class Modal extends React.Component {
   	}
     else
     {
-    	return (<p>à venir :  </p>)
+    	return (
+        <div>
+        <img src={this.props.marker} onClick={this.props.onToggle}/>
+          <div  className="mapModal" style={this.props.toggle===false? {visibility:'visible'} : {visibility:'hidden'}}>
+                     <h6>Lieu : {this.props.field.nom}</h6>
+             
+                    <p>Adresse : {this.props.field.adresse} à {this.props.field.ville} {this.props.codePostal}</p>
+
+                   
+                     
+                    <button type="button"  onClick={this.handleClickChoisir} className="btn btn-dark">Choisir</button>  
+                    <button type="button" onClick={this.props.onToggle}  className="btn btn-dark closeModal">Fermer</button>  
+                   
+                </div>
+            </div>
+      )
     }
   }
 }

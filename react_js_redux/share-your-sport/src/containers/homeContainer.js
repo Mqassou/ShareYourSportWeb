@@ -6,13 +6,10 @@ import '../styles/home.css';
 import {NavBarContainer} from './navBarContainer';
 import {ModalContainer} from './modalContainer';
 // external ressources
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
 import axios from 'axios';
-import GoogleMapReact from 'google-map-react';
+import Cookies from 'universal-cookie';
+ 
+const cookies = new Cookies();
 
 export class HomeContainer extends React.Component {
  constructor(props) {
@@ -27,25 +24,36 @@ export class HomeContainer extends React.Component {
                markers:[]
              };
 
+      this.onJoinEvent=this.onJoinEvent.bind(this);
+  }
+
+  onJoinEvent(_eventId)
+  {
+    const self=this;
+   axios.post('http://localhost:8080/joinEvent', {
+      userId: cookies.get('userId'),
+      eventId: _eventId
+    })
+    .then(function (response) {
+      console.log(response);
+      if( response.data ==true)
+      {
+      console.log("evenement rejoint");
+      // prévoir pop up de confirmation
+      }
+    
+    })
+    .catch(function (error) {
+      console.log(error);
+    }); 
   }
 
   render() {
+
     return (
       <div>
         <NavBarContainer/>
-           <div className="gm-container">
-             <GoogleMapReact
-              bootstrapURLKeys={{
-                key: 'AIzaSyCn2AbzxV5WssLpW0Eik6t2zABfKm6wZpA',
-                language: 'fr'
-              }}
-              defaultCenter={this.state.center}
-              defaultZoom={this.state.zoom}
-            >
-              
-            {this.state.markers}
-            </GoogleMapReact>
-          </div>
+          <Home center={this.state.center} zoom={this.state.zoom} markers={this.state.markers}/>
       </div>
     	);
   }
@@ -62,6 +70,7 @@ export class HomeContainer extends React.Component {
                           lng={event.longitude} 
                           page={self.state.page}
                           event={event}
+                          onJoinEvent={self.onJoinEvent}
                           />
                         )   
                     )

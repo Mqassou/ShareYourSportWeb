@@ -4,12 +4,13 @@ import {LoginContainer} from './containers/loginContainer';
 import {HomeContainer} from './containers/homeContainer';
 import {CreateEventContainer} from './containers/createEventContainer';
 import {ParametersContainer} from './containers/parametersContainer';
+
+//external ressources
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
-
 import 'bootstrap/dist/css/bootstrap.css';
 import registerServiceWorker from './registerServiceWorker';
 

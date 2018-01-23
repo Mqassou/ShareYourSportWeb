@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Modal} from '../components/modal'
 
 //import marker
+import markerEmpty from '../images/marker/marker.png';
 import markerBadminton from '../images/marker/marker_badminton.png';
 import markerFootball from '../images/marker/marker_football.png';
 import markerRugby from '../images/marker/marker_rugby.png';
@@ -15,6 +16,7 @@ import markerCyclisme from '../images/marker/marker_cycle.png';
 import axios from 'axios';
 
 const marker={
+      'Marker':markerEmpty,
       'Badminton':markerBadminton,
       'Football':markerFootball,
       'Rugby':markerRugby,
@@ -29,16 +31,13 @@ export class ModalContainer extends React.Component {
  constructor(props) {
     super(props);
     this.state={
-      toggle:true,
-      page:this.props.page,
-      event:this.props.event
+      toggle:true
     };
     this.toggle=this.toggle.bind(this);
   }
 
 toggle()
 {
-     console.log(this.state.toggle);
    this.setState({toggle:!this.state.toggle})
 
 }
@@ -53,14 +52,13 @@ toggle()
   }
 
   render() {
-    console.log("this.state.event= "+this.state.event.lieupratique);
     if(this.props.page==='home')
     {
-       return (<Modal page={this.state.page} event={this.state.event}onToggle={this.toggle} toggle={this.state.toggle} marker={marker[this.state.event.sport]}/>)
+       return (<Modal page={this.props.page} event={this.props.event}   onJoinEvent={this.props.onJoinEvent} onToggle={this.toggle} toggle={this.state.toggle} marker={marker[this.props.event.sport]}/>)
     }
     else
     {
-        return (<p>à venir :  </p>)
+       return (<Modal page={this.props.page} field={this.props.field}   onChoisir={this.props.onChoisir} onToggle={this.toggle} toggle={this.state.toggle} marker={marker['Marker']}/>)
     }
   }
 }

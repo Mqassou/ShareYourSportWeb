@@ -8,7 +8,9 @@ import '../styles/login.css';
 //external ressources
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import axios from 'axios';
-
+import Cookies from 'universal-cookie';
+ 
+const cookies = new Cookies();
 
 
 export class LoginContainer extends React.Component {
@@ -51,6 +53,7 @@ connexion()
       if( response.data !=false)
       {
         self.setState({loggedIn:true})
+        cookies.set('userId',response.data, { path: '/' });
       }
     
     })
