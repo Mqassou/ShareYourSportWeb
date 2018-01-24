@@ -8,23 +8,13 @@ import {ParametersContainer} from './containers/parametersContainer';
 //external ressources
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import registerServiceWorker from './registerServiceWorker';
 
 
-export class App extends React.Component {
- constructor(props) {
-    super(props);
-
-  //  this.state = { }
-  }
-
-
-  render() {
-    return (
+export const App=(props) => (
       <Router>
            <div>
              <Route exact path='/' component={LoginContainer}/>
@@ -36,8 +26,7 @@ export class App extends React.Component {
       
 
       )
-  }
-}
+
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

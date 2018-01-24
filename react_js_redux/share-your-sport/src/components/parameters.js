@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {PopUp} from '../components/popUp'
 import { 
 	Button, 
 	Form, 
 	FormGroup, 
 	Label, 
-	Input, 
-	FormText } from 'reactstrap';
+	Input } from 'reactstrap';
 
 export class Parameters extends React.Component {
 
@@ -23,6 +23,7 @@ this.props.onChangeParametres({parametres:{[e.target.name]:e.target.value}});
   render() {
     return (
     	<div id="formParameters">
+    	  <PopUp text="Paramètres mise à jour"  displayPopUp={this.props.displayPopUp}/>
 		 <Form>
 		       <FormGroup>
 		          <Label for="pseudo">Pseudo</Label>
@@ -83,5 +84,26 @@ this.props.onChangeParametres({parametres:{[e.target.name]:e.target.value}});
 		</div>
     	)
   }
+}
+
+Parameters.propTypes={
+onUpdate:PropTypes.func.isRequired,
+onChangeParametres:PropTypes.func.isRequired,
+
+event: PropTypes.shape({
+            	userId:PropTypes.string.isRequired,
+                pseudo:PropTypes.string.isRequired,
+                motdepasse:PropTypes.string.isRequired,
+                email:PropTypes.string.isRequired,
+                tel:PropTypes.string.isRequired,
+                nom:PropTypes.string.isRequired,
+                prenom:PropTypes.string.isRequired,
+                adresse:PropTypes.string.isRequired,
+                ville:PropTypes.string.isRequired,
+                date_de_naissance:PropTypes.string.isRequired,
+                sexe:PropTypes.string.isRequired
+          }),
+
+displayPopUp:PropTypes.bool.isRequired
 }
 

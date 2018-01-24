@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import {PopUp} from '../components/popUp'
 import GoogleMapReact from 'google-map-react';
 import { 
 	Button, 
@@ -8,7 +8,6 @@ import {
 	FormGroup, 
 	Label, 
 	Input, 
-	FormText,
 	Alert} from 'reactstrap';
 
 export class CreateEvent extends React.Component {
@@ -26,8 +25,8 @@ this.props.onChangeCreateEvent({event:{[e.target.name]:e.target.value}});
   render() {
     return (
 		<div id="formCreateEvent">
+		   <PopUp text="Evenement crée"  displayPopUp={this.props.displayPopUp}/>
 			<Form>
-
 
 			 <FormGroup>
 		          <Label for="sport">Sport</Label>
@@ -64,9 +63,9 @@ this.props.onChangeCreateEvent({event:{[e.target.name]:e.target.value}});
 			       </div>
 
 			       	<Alert color="success">
-				     Lieu : {this.props.lieupratique}<br/>
-					Adresse : {this.props.adresse} <br/>
-					Ville : {this.props.ville}
+				     Lieu : {this.props.event.lieupratique}<br/>
+					Adresse : {this.props.event.adresse} <br/>
+					Ville : {this.props.event.ville}
 				     </Alert>
 
 				<FormGroup>
@@ -94,3 +93,35 @@ this.props.onChangeCreateEvent({event:{[e.target.name]:e.target.value}});
   }
 }
 
+
+
+
+CreateEvent.propTypes={
+onChangeCreateEvent:PropTypes.func.isRequired,
+onCreer:PropTypes.func.isRequired,
+
+event: PropTypes.shape({
+            sport:PropTypes.string.isRequired,
+            lieupratique:PropTypes.string.isRequired,
+            ville:PropTypes.string.isRequired,
+            adresse:PropTypes.string.isRequired,
+            latitude:PropTypes.string.isRequired,
+            longitude:PropTypes.string.isRequired,
+            date:PropTypes.string.isRequired,
+            heuredebut:PropTypes.string.isRequired,
+            heurefin:PropTypes.string.isRequired,
+            nbrpersonne:PropTypes.string.isRequired
+          }),
+
+center: PropTypes.shape({
+    lat: PropTypes.number.isRequired,
+    lng: PropTypes.number.isRequired
+  }),
+zoom: PropTypes.number.isRequired,
+page:PropTypes.string.isRequired,
+markers:PropTypes.array.isRequired,
+displayPopUp:PropTypes.bool.isRequired
+}
+
+
+   

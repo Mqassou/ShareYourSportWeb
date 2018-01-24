@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
 import {Home} from '../components/home'
 import '../styles/home.css';
 import {NavBarContainer} from './navBarContainer';
@@ -21,7 +19,8 @@ export class HomeContainer extends React.Component {
                 },
                zoom: 11,
                page:'home',
-               markers:[]
+               markers:[],
+               displayPopUp:false
              };
 
       this.onJoinEvent=this.onJoinEvent.bind(this);
@@ -36,10 +35,10 @@ export class HomeContainer extends React.Component {
     })
     .then(function (response) {
       console.log(response);
-      if( response.data ==true)
+      if( response.data===true)
       {
-      console.log("evenement rejoint");
-      // prévoir pop up de confirmation
+      self.setState({displayPopUp:true})
+      setTimeout(function() {  self.setState({displayPopUp:false}); }, 3000);
       }
     
     })
@@ -53,7 +52,7 @@ export class HomeContainer extends React.Component {
     return (
       <div>
         <NavBarContainer/>
-          <Home center={this.state.center} zoom={this.state.zoom} markers={this.state.markers}/>
+          <Home {...this.state}/>
       </div>
     	);
   }
@@ -63,7 +62,7 @@ export class HomeContainer extends React.Component {
    axios.get('http://localhost:8080/allEvent')
     .then(function (response) {
 
-        response.data.map((event) =>(
+        response.data.map((event,index) =>(
             self.state.markers.push( 
                         <ModalContainer
                           lat={event.latitude}
@@ -71,6 +70,7 @@ export class HomeContainer extends React.Component {
                           page={self.state.page}
                           event={event}
                           onJoinEvent={self.onJoinEvent}
+                          key={index}
                           />
                         )   
                     )

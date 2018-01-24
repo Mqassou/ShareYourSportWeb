@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button} from 'reactstrap';
 import '../styles/modal.css';
 
 export class Modal extends React.Component {
@@ -28,7 +27,7 @@ this.props.onChoisir(this.props.field.nom,this.props.field.adresse,this.props.fi
   	{
   		return (
     		<div>
-    		<img src={this.props.marker} onClick={this.props.onToggle}/>
+    		<img alt={this.props.event.sport} src={this.props.marker} onClick={this.props.onToggle}/>
     			<div  className="mapModal" style={this.props.toggle===false? {visibility:'visible'} : {visibility:'hidden'}}>
                   	<h6>Sport : {this.props.event.sport}</h6>
                      
@@ -50,7 +49,7 @@ this.props.onChoisir(this.props.field.nom,this.props.field.adresse,this.props.fi
     {
     	return (
         <div>
-        <img src={this.props.marker} onClick={this.props.onToggle}/>
+        <img alt={this.props.field.nom} src={this.props.marker} onClick={this.props.onToggle}/>
           <div  className="mapModal" style={this.props.toggle===false? {visibility:'visible'} : {visibility:'hidden'}}>
                      <h6>Lieu : {this.props.field.nom}</h6>
              
@@ -68,4 +67,17 @@ this.props.onChoisir(this.props.field.nom,this.props.field.adresse,this.props.fi
   }
 }
 
- 
+Modal.propTypes={
+onToggle:PropTypes.func.isRequired,
+toggle:PropTypes.bool.isRequired,
+marker:PropTypes.string,
+lat:PropTypes.string,
+lng:PropTypes.string,
+page:PropTypes.string.isRequired,
+event:PropTypes.object,
+onJoinEvent:PropTypes.func,
+field:PropTypes.object,
+onChoisir:PropTypes.func,
+key:PropTypes.number
+}
+ //import PropTypes from 'prop-types';

@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {PopUp} from '../components/popUp'
 import { 
 	Button, 
 	Form, 
 	FormGroup, 
 	Label, 
 	Input, 
-	FormText,
 	Modal,
 	ModalHeader,
 	ModalBody,
-	ModalFooter } from 'reactstrap';
+	ModalFooter} from 'reactstrap';
 
 export class Login extends React.Component {
 
@@ -33,6 +33,7 @@ this.props.onChangeCreerCompte({creerCompte:{[e.target.name]:e.target.value}});
   render() {
     return (
     	<div className="container">
+    	<PopUp text="Compte crée"  displayPopUp={this.props.displayPopUp}/>
 		 <Form>
 			 <h1>ShareYourSport  </h1>
 		        <FormGroup>
@@ -40,7 +41,7 @@ this.props.onChangeCreerCompte({creerCompte:{[e.target.name]:e.target.value}});
 		          <Input type="email" onChange={this.handleChangeConnexion}  name="email" placeholder="Email"  />
 		        </FormGroup>
 		        <FormGroup>
-		          <Label for="password">Password</Label>
+		          <Label for="motdepasse">Mot de passe</Label>
 		          <Input type="password" onChange={this.handleChangeConnexion} name="motdepasse"  placeholder="Mot de passe" />
 		        </FormGroup>
 
@@ -84,6 +85,7 @@ this.props.onChangeCreerCompte({creerCompte:{[e.target.name]:e.target.value}});
 
 Login.propTypes={
 modal:PropTypes.bool.isRequired,
+displayPopUp:PropTypes.bool.isRequired,
 onToggle:PropTypes.func.isRequired,
 onChangeCreerCompte:PropTypes.func.isRequired,
 onChangeConnexion:PropTypes.func.isRequired,

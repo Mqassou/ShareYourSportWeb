@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Modal} from '../components/modal'
 
 //import marker
@@ -12,8 +11,7 @@ import markerTennis from '../images/marker/marker_tennis.png';
 import markerVolleyBall from '../images/marker/marker_volleyball.png';
 import markerBasketball from '../images/marker/marker_basketball.png';
 import markerCyclisme from '../images/marker/marker_cycle.png';
-//external ressources
-import axios from 'axios';
+
 
 const marker={
       'Marker':markerEmpty,
@@ -44,7 +42,7 @@ toggle()
 
   shouldComponentUpdate(nextProps, nextState)
   {
-    if(this.state.toggle!=nextState.toggle)
+    if(this.state.toggle!==nextState.toggle)
     {
       return true;
     }
@@ -54,11 +52,11 @@ toggle()
   render() {
     if(this.props.page==='home')
     {
-       return (<Modal page={this.props.page} event={this.props.event}   onJoinEvent={this.props.onJoinEvent} onToggle={this.toggle} toggle={this.state.toggle} marker={marker[this.props.event.sport]}/>)
+       return (<Modal {...this.props} onToggle={this.toggle} toggle={this.state.toggle} marker={marker[this.props.event.sport]}/>)
     }
     else
     {
-       return (<Modal page={this.props.page} field={this.props.field}   onChoisir={this.props.onChoisir} onToggle={this.toggle} toggle={this.state.toggle} marker={marker['Marker']}/>)
+       return (<Modal {...this.props} onToggle={this.toggle} toggle={this.state.toggle} marker={marker['Marker']}/>)
     }
   }
 }

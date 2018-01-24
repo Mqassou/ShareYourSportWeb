@@ -1,0 +1,12 @@
+
+ #popUp
+ {
+display:block;
+width:300px;
+position:fixed;
+top:40px;
+left:40%;
+text-align:center;
+z-index: 99999999;
+
+ }

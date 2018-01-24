@@ -3,7 +3,6 @@ body
 background:url("../images/fond.png") repeat  fixed; 
 }
 
- 
 
 .container form
 {
@@ -11,5 +10,5 @@ background:url("../images/fond.png") repeat  fixed;
 	width:300px;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top:150px;
+	margin-top:100px;
 }

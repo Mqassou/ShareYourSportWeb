@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {NavBar} from '../components/navBar'
 
 export class NavBarContainer extends React.Component {

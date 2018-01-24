@@ -334,19 +334,3 @@ app.listen(8080);
 
  
 
-/*
-TEST
-
-app.post('/login',function(req,res){
-req.session.views="truc";
-  res.send('you viewed this page ' + req.session.views + ' times')
-})
-
-app.get('/allEvent', function (req, res) {
-
-  res.send('you viewed this page ' + req.session.views + ' times')
-})
-app.listen(8080);
-
-
-*/

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {NavBarContainer} from './navBarContainer';
 import {Parameters} from '../components/parameters'
 import '../styles/parameters.css';
@@ -29,7 +28,8 @@ export class ParametersContainer extends React.Component {
                 date_de_naissance:'',
                 sexe:''
 
-        }
+        },
+         displayPopUp:false
       };
 
    this.onChangeParametres=this.onChangeParametres.bind(this);
@@ -77,7 +77,11 @@ update()
       sexe:this.state.parametres.sexe
    })
     .then(function (response) {
-     response.data==true? console.log("updated"): console.log("Not updated");
+     if( response.data ===true)
+      {
+      self.setState({displayPopUp:true})
+      setTimeout(function() {  self.setState({displayPopUp:false}); }, 3000);
+      }
     })
     .catch(function (error) {
       console.log(error);
@@ -89,7 +93,7 @@ update()
     return  (
     <div>
       <NavBarContainer/>
-      <Parameters {...this.state}  onUpdate={this.update} onChangeParametres={this.onChangeParametres} />
+      <Parameters {...this.state} onUpdate={this.update} onChangeParametres={this.onChangeParametres} />
     </div>
     )
   }

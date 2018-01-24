@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import {
   Collapse,
   Navbar,
@@ -34,6 +34,11 @@ export const NavBar=(props) => (
 	      )
 
 
+
+NavBar.propTypes={
+onToggle:PropTypes.func.isRequired,
+isOpen:PropTypes.bool.isRequired
+}
 
 
 

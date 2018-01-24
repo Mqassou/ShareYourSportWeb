@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {NavBarContainer} from './navBarContainer';
 import {ModalContainer} from './modalContainer';
 import {CreateEvent} from '../components/createEvent'
@@ -30,9 +29,10 @@ export class CreateEventContainer extends React.Component {
                   lat: 48.864716, 
                   lng: 2.349014
                 },
-               zoom: 11,
-               page:'createEvent',
-               markers:[]
+          zoom: 11,
+          page:'createEvent',
+          markers:[],
+          displayPopUp:false
       }
 
 
@@ -80,7 +80,18 @@ creer()
             nbrpersonne:this.state.event.nbrpersonne,
    })
     .then(function (response) {
-     response.data==true? console.log("created event"): console.log("Not created event");
+     if(response.data===true)
+     {
+      self.setState({displayPopUp:true}); 
+      setTimeout(function() {  
+        self.setState({displayPopUp:false}); 
+      }, 3000)
+     }
+     else
+     {
+    console.log("Not created event");
+     }
+
     })
     .catch(function (error) {
       console.log(error);
@@ -91,7 +102,7 @@ creer()
     return  (
     <div>
       <NavBarContainer/>
-      <CreateEvent {...this.state.event} onChangeCreateEvent={this.onChangeCreateEvent} onCreer={this.creer} center={this.state.center} zoom={this.state.zoom} markers={this.state.markers} />
+      <CreateEvent {...this.state} onChangeCreateEvent={this.onChangeCreateEvent} onCreer={this.creer}  />
     </div>
     )
   }

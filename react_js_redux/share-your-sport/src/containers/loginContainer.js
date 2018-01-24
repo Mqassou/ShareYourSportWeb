@@ -1,12 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-import {HomeContainer} from './homeContainer';
 import {Login} from '../components/login'
 import '../styles/login.css';
 
 //external ressources
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import axios from 'axios';
 import Cookies from 'universal-cookie';
  
@@ -28,7 +25,8 @@ export class LoginContainer extends React.Component {
     				 motdepasse:''
     				},
     				loggedIn:false,
-    				modal:false
+    				modal:false,
+            displayPopUp:false
     		};
 
 
@@ -39,6 +37,7 @@ export class LoginContainer extends React.Component {
     this.onChangeCreerCompte = this.onChangeCreerCompte.bind(this);
 
     this.toggle = this.toggle.bind(this);
+    
   }
 
 connexion()
@@ -50,7 +49,7 @@ connexion()
     })
     .then(function (response) {
       console.log(response);
-      if( response.data !=false)
+      if( response.data !==false)
       {
         self.setState({loggedIn:true})
         cookies.set('userId',response.data, { path: '/' });
@@ -81,10 +80,13 @@ connexion()
     })
     .then(function (response) {
       console.log(response);
-      if( response.data !=false)
+      if( response.data !==false)
       {
         console.log('compte crée');
-         self.setState({modal:false})
+         self.setState({modal:false});
+         self.setState({displayPopUp:true})
+         setTimeout(function() {  self.setState({displayPopUp:false}); }, 3000);
+
       }
     
     })
@@ -106,6 +108,7 @@ connexion()
     });
   }
 
+
   render() {
   	if(this.state.loggedIn)
   	{
@@ -114,7 +117,7 @@ connexion()
   	}
   	else
   	{
-  		 return <Login modal={this.state.modal} onToggle={this.toggle} onChangeCreerCompte={this.onChangeCreerCompte} onChangeConnexion={this.onChangeConnexion} onConnexion={this.connexion}  onCreerCompte={this.creerCompte}/>
+  		 return <Login modal={this.state.modal} displayPopUp={this.state.displayPopUp}  onToggle={this.toggle} onChangeCreerCompte={this.onChangeCreerCompte} onChangeConnexion={this.onChangeConnexion} onConnexion={this.connexion}  onCreerCompte={this.creerCompte}/>
   	}
    
   }
