@@ -15,7 +15,7 @@ Les technologies utilisées :  Angular JS, ReactJS, Node.js, MongoDB. Test unita
 
 ## Page d'accueil ##
 
-![Alt text](https://www.noelshack.com/2018-04-4-1516907417-accueil.png)
+![Alt text](https://image.noelshack.com/fichiers/2018/04/4/1516907417-accueil.png)
 
 ## Page de création d'une activité ##
 
