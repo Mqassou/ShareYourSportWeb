@@ -1,6 +1,9 @@
-# README #
+# ShareYourSport #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+ShareYourSport est une application web qui permet de créer et de partager des activités sportives.
+Elle est basée sur la même application crée initialement en Android et figurant sur compte github.
+
+Les technologies utilisées :  Angular,React, Node.js, MongoDB. Test unitaire : Karma / jasmine, End-To-End test : protractor;
 
 ### What is this repository for? ###
 
