@@ -1,32 +1,31 @@
 # ShareYourSport #
 
-ShareYourSport est une application web qui permet de créer et de partager des activités sportives.
-Elle est basée sur la même application crée initialement en Android et figurant sur compte github.
+ShareYourSport est une application web  en cours de développement qui permet de créer et de partager des activités sportives.
+Elle est basée sur la même application crée initialement en Android et figurant sur mon compte github.
 
-Les technologies utilisées :  Angular,React, Node.js, MongoDB. Test unitaire : Karma / jasmine, End-To-End test : protractor;
 
-### What is this repository for? ###
+Les technologies utilisées :  Angular JS, ReactJS, Node.js, MongoDB. Test unitaire : Karma / Jasmine, End-To-End test : Protractor.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+# L'application #
 
-### How do I get set up? ###
+## Page de connexion ##
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+![Alt text](https://www.noelshack.com/2018-04-4-1516907417-connexion.png)
+![Alt text](https://www.noelshack.com/2018-04-4-1516907416-creation-compte.png)
 
-### Contribution guidelines ###
+## Page d'accueil ##
 
-* Writing tests
-* Code review
-* Other guidelines
+![Alt text](https://www.noelshack.com/2018-04-4-1516907417-accueil.png)
 
-### Who do I talk to? ###
+## Page de création d'une activité ##
 
-* Repo owner or admin
-* Other community or team contact
+![Alt text](https://www.noelshack.com/2018-04-4-1516907417-creer-activite.png)
+![Alt text](https://www.noelshack.com/2018-04-4-1516907417-creer-activite2.png)
+
+## Page de modfications des paramètres utilisateurs ##
+![Alt text](https://www.noelshack.com/2018-04-4-1516907417-parametres.png)
+
+
+
+
+
