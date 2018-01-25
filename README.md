@@ -1,7 +1,7 @@
 # ShareYourSport #
 
 ShareYourSport est une application web  en cours de développement qui permet de créer et de partager des activités sportives.
-Elle est basée sur la même application crée initialement en Android et figurant sur mon compte github.
+[Elle est basée sur la même application crée initialement en Android et figurant sur mon compte github.](https://github.com/Mqassou/shareyoursport)
 
 
 Les technologies utilisées :  Angular JS, ReactJS, Node.js, MongoDB. Test unitaire : Karma / Jasmine, End-To-End test : Protractor.
@@ -22,7 +22,7 @@ Les technologies utilisées :  Angular JS, ReactJS, Node.js, MongoDB. Test unita
 ![Alt text](https://image.noelshack.com/fichiers/2018/04/4/1516907417-creer-activite.png)
 ![Alt text](https://image.noelshack.com/fichiers/2018/04/4/1516907417-creer-activite2.png)
 
-## Page de modfications des paramètres utilisateurs ##
+## Page de modifications des paramètres utilisateurs ##
 ![Alt text](https://image.noelshack.com/fichiers/2018/04/4/1516907417-parametres.png)
 
 
