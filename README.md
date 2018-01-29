@@ -10,8 +10,8 @@ Les technologies utilisées :  Angular JS, ReactJS, Node.js, MongoDB. Test unita
 
 ## Page de connexion ##
 
-![Alt text](https://image.noelshack.com/fichiers/2018/04/4/1516907417-connexion.png)
-![Alt text](https://image.noelshack.com/fichiers/2018/04/4/1516907416-creation-compte.png)
+![Alt text](https://i.imgur.com/o4tPagw.png)
+![Alt text](https://i.imgur.com/wnaaRVy.png)
 
 ## Page d'accueil ##
 
@@ -19,11 +19,11 @@ Les technologies utilisées :  Angular JS, ReactJS, Node.js, MongoDB. Test unita
 
 ## Page de création d'une activité ##
 
-![Alt text](https://image.noelshack.com/fichiers/2018/04/4/1516907417-creer-activite.png)
-![Alt text](https://image.noelshack.com/fichiers/2018/04/4/1516907417-creer-activite2.png)
+![Alt text](https://i.imgur.com/QnS6HO6.png)
+![Alt text](https://i.imgur.com/Z3r4Vnk.png)
 
 ## Page de modifications des paramètres utilisateurs ##
-![Alt text](https://image.noelshack.com/fichiers/2018/04/4/1516907417-parametres.png)
+![Alt text](https://i.imgur.com/iP9SBDM.png)
 
 
 
